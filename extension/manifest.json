@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Daily Forcer",
+  "version": "0.1.0",
+  "description": "Redirects you to LeetCode until you solve a configurable number of problems. Tracks progress from a LeetCode profile's recent submissions.",
+  "permissions": ["storage", "tabs", "scripting", "alarms"],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LeetCode Daily Forcer"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_all.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://leetcode.com/u/*/", "https://leetcode.com/u/*"],
+      "js": ["content_profile.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

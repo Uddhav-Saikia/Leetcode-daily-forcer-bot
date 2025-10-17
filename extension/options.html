@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Options - LeetCode Daily Forcer</title>
+  <style> body{ font-family: Arial; padding: 12px; } label{display:block;margin-top:8px;} input{width:300px;padding:6px;} </style>
+</head>
+<body>
+  <h2>LeetCode Daily Forcer - Options</h2>
+  <label>Daily target
+    <input id="target" type="number" min="0" />
+  </label>
+  <label>Profile URL
+    <input id="profileUrl" type="url" />
+  </label>
+  <label>
+    <input id="blockingEnabled" type="checkbox" /> Enable blocking
+  </label>
+  <div style="margin-top:12px;">
+    <button id="save">Save</button>
+    <button id="reset">Reset Defaults</button>
+  </div>
+  <div id="status" style="margin-top:8px;color:green"></div>
+  <script src="options.js"></script>
+</body>
+</html>
