@@ -2,7 +2,8 @@ const DEFAULTS = {
   target: 5,
   profileUrl: 'https://leetcode.com/u/uddhav6/',
   blockingEnabled: true,
-  seenSubmissions: {} // map id -> timestamp
+  seenSubmissions: {}, // map id -> timestamp
+  lastReportTs: 0 // timestamp of last time new submissions were added
 };
 
 let state = { ...DEFAULTS };
@@ -43,8 +44,11 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         added++;
       }
     }
-    if (added > 0) saveState();
-    sendResponse({ added, totalToday: countSolvedToday() });
+    if (added > 0) {
+      state.lastReportTs = Date.now();
+      saveState();
+    }
+    sendResponse({ added, totalToday: countSolvedToday(), lastReportTs: state.lastReportTs });
     return true;
   }
 
