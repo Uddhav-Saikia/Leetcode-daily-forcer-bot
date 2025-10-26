@@ -3,7 +3,7 @@
 What it does
 - Redirects you to your LeetCode profile until you solve a configurable number of problems in a day.
 - Scrapes the profile's "Recent AC" area to detect recently accepted submissions and reports them to the extension.
-- Deduplicates submissions by a generated id to avoid double counting.
+- Deduplicates submissions by a generated id to avoid double count
 
 Files
 - `manifest.json` - extension manifest
